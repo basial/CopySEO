@@ -1,6 +1,6 @@
 CopySEO::Application.routes.draw do
   devise_for :users
-  root 'categories#index'
+  root 'users#welcome'
   resources :categories
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

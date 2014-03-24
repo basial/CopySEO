@@ -1,28 +1,38 @@
-<table>
+<%- model_class = Category -%>
+<div>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <td><strong>Title</strong></td>
-      <td><strong>Description</strong></td>
+      <th>Id</th>
+      <th>Nazwa</th>
+      <th>Opis</th>
+      <th>Zdjęcie</th>
+      <th>Ostatnio edytował</th>
+      <th>Utworzono</th>
     </tr>
   </thead>
   <tbody>
     <% @categories.each do |category| %>
-    <tr>
-      <td><%= (category.title).html_safe %></td>
-      <td><%= (category.description).html_safe %></td>
-      <td><%= image_tag category.avatar.url(:thumb) %></td>
-      <td><%= link_to "Edytuj", edit_category_path(category) %></td>
-      <% if current_user.admin? %>
-        <td><%= link_to "Usuń", category, method: :delete %></td>
-      <% end %>
-    </tr>
+      <tr>
+        <td><%= link_to category.id, category_path(category) %></td>
+        <td><%= (category.title).html_safe %></td>
+        <td><%= (category.description).html_safe %></td>
+        <td class="category"><%= image_tag category.avatar(:thumb) %></td>
+        <td><%= category.last_contributor %></td>
+        <td><%= category.created_at.strftime('%T %F') %></td>
+        <td>
+          <%= link_to "Edytuj", edit_category_path(category), :class => 'btn btn-mini' %>
+          <%= link_to "Usuń", category_path(category), :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Jesteś pewny?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
 
 <% if current_user.admin? %>
-  <%= link_to "Dodaj nową kategorię", new_category_path %>
+  <%= link_to "Dodaj nową kategorię", new_category_path, :class => 'btn btn-primary' %>
 <% end %>
-
-<%= link_to "List all users", users_path %>
-<%= link_to "Profil", user_path(current_user) %>

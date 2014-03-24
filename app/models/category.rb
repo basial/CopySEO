@@ -1,4 +1,9 @@
 class Category < ActiveRecord::Base
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :thumb => "100x100" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+  def last_contributor
+    user = User.find(last_edited_by)
+    return "#{user.first_name} #{user.last_name}"
+  end
 end

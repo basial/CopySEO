@@ -15,4 +15,10 @@ private
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
+
+  def authenticate_admin!
+    if !current_user.admin?
+      redirect_to new_user_session_path
+    end
+  end
 end

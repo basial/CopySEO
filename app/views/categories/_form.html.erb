@@ -1,19 +1,19 @@
 <%= form_for @category, html: { multipart: true } do |form| %>
+<div class="control-group">
   <div class="title field">
-    <%= form.label :title %>
-    <%= form.text_field :title, value: @category.title %>
+    <%= form.label :title, class: 'control-label' %>
+    <%= form.text_field :title, value: @category.title, class: 'text_field' %>
   </div>
-
   <div class="description field">
-    <%= form.label :description %>
+    <%= form.label :description, class: 'control-label' %>
     <%= form.text_area :description, value: @category.description %>
   </div>
-
   <div class="photo field">
-    <%= form.file_field :avatar %>
+    <%= form.file_field :avatar, class: 'file_field' %>
   </div>
 
   <div class="action">
     <%= form.submit("Zapisz zmiany!") %>
   </div>
+</div>
 <% end %>

@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <td>Id</td>
-      <td><strong>First Name</strong></td>
-      <td><strong>Last Name</strong></td>
+      <td><strong>Imię</strong></td>
+      <td><strong>Nazwisko</strong></td>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +12,7 @@
       <td><%= user.id %></td>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
-      <td><%= image_tag user.avatar.url(:thumb) %></td>
+      <td class="user"><%= image_tag user.avatar.url(:thumb) %></td>
       <td><%= link_to "Usuń", user, method: :delete %></td>
     </tr>
     <% end %>
