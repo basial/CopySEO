@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td><strong>First Name</strong></td>
+      <td><strong>Last Name</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= image_tag user.avatar.url(:thumb) %></td>
+      <td><%= link_to "Usuń", user, method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Powrót do kategorii", categories_path %>

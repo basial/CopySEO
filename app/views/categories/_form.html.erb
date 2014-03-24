@@ -1,0 +1,19 @@
+<%= form_for @category, html: { multipart: true } do |form| %>
+  <div class="title field">
+    <%= form.label :title %>
+    <%= form.text_field :title, value: @category.title %>
+  </div>
+
+  <div class="description field">
+    <%= form.label :description %>
+    <%= form.text_area :description, value: @category.description %>
+  </div>
+
+  <div class="photo field">
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="action">
+    <%= form.submit("Zapisz zmiany!") %>
+  </div>
+<% end %>

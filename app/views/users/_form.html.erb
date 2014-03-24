@@ -1,0 +1,29 @@
+<%= form_for @user, html: { multipart: true } do |form| %>
+  <div class="first_name field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, value: current_user.first_name %>
+  </div>
+
+  <div class="last_name field">
+    <%= form.label :last_name%>
+    <%= form.text_field :last_name, value: current_user.last_name %>
+  </div>
+
+  <div class="address field">
+    <%= form.label :address %>
+    <%= form.text_area :address, value: current_user.address %>
+  </div>
+
+  <div class="phone_number field">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, value: current_user.phone_number %>
+  </div>
+
+  <div class="photo field">
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="action">
+    <%= form.submit("Zapisz zmiany!") %>
+  </div>
+<% end %>

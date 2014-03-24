@@ -1,0 +1,8 @@
+<%= @user.first_name %>
+<%= @user.last_name %>
+<%= @user.email %>
+<%= @user.address %>
+<%= @user.phone_number %>
+<%= image_tag @user.avatar.url(:thumb) %>
+<%= link_to "Edytuj profil", edit_user_path(@user) %>
+<%= link_to "Lista kategorii", categories_path %>

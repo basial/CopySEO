@@ -1,0 +1,4 @@
+<h1><%= (@category.title).html_safe %></h1>
+<%= render "form" %>
+<p>Ostatnio edytowana przez: <%= User.find(@category.last_edited_by).last_name %></p>
+<%= link_to "Powrót do listy kategorii", categories_path %>
