@@ -3,7 +3,11 @@ class Category < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def last_contributor
-    user = User.find(last_edited_by)
-    return "#{user.first_name} #{user.last_name}"
+    if (last_edited_by)
+      user = User.find(last_edited_by)
+      return "#{user.first_name} #{user.last_name}"
+    else 
+      return false
+    end
   end
 end

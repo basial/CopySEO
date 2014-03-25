@@ -5,6 +5,10 @@ before_filter :set_user, only: [:show, :edit, :update, :destroy]
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
   def update
     if @user.update(user_params)
       redirect_to @user

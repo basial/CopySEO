@@ -1,5 +1,14 @@
 <%- model_class = Category -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <div class="conatiner">
+    <div class="span10">
+      <h1><%= @category.title %></h1>
+    </div>
+    <div class="span2">
+      <%= image_tag @category.avatar.url(:thumb) %>
+    </div>
+  </div>
 </div>
-<%= render :partial => 'form' %>
+<div class="container span12">
+  <%= render :partial => 'form' %>
+</div>

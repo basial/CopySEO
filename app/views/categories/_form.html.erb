@@ -11,9 +11,9 @@
   <div class="photo field">
     <%= form.file_field :avatar, class: 'file_field' %>
   </div>
-
   <div class="action">
-    <%= form.submit("Zapisz zmiany!") %>
+    <%= link_to "Powrót", categories_path, class: 'btn' %>
+    <%= form.submit "Zapisz zmiany!", class: 'btn btn-primary' %>
   </div>
 </div>
 <% end %>
