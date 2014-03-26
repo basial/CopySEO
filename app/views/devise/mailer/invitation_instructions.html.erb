@@ -1,8 +1,8 @@
-<p>Hello <%= @resource.email %>!</p>
+<p>Witaj <%= @resource.email %>!</p>
 
-<p>Someone has invited you to <%= root_url %>, you can accept it through the link below.</p>
+<p>Otrzymałeś zaproszenie do rejestracji w CopySEO <%= root_url %>, możesz je zaakceptować klikając w poniższy link.</p>
 
-<p><%= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @token) %></p>
+<p><%= link_to 'Zaakceptuj zaproszenie', accept_invitation_url(@resource, :invitation_token => @token) %></p>
 
-<p>If you don't want to accept the invitation, please ignore this email.<br />
-Your account won't be created until you access the link above and set your password.</p>
+<p>Jeżeli nie jesteś zainteresowany rejestracją, zignoruje tego maila.<br />
+Twoje konto nie zostanie utworzone, dopóki nie klikniesz w link 'Akceptuj' i nie ustawisz hasła.</p>
