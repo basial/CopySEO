@@ -1,18 +1,12 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1>Użytkownicy</h1>
-</div>
+<h1 class="page-header">Użytkownicy</h1>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in) %></th>
-      <th><%= model_class.human_attribute_name(:admin) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:phone_number) %></th>
+      <th>ID</th>
+      <th>Adres e-mail</th>
+      <th>Admin</th>
+      <th>Imię</th>
+      <th>Nazwisko</th>
     </tr>
   </thead>
   <tbody>
@@ -20,22 +14,19 @@
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.email %></td>
-        <td><%= user.last_sign_in_at.strftime('%T %F') %></td>
         <td><%= user.admin %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= user.address %></td>
-        <td><%= user.phone_number %></td>
         <td><%= image_tag user.avatar.url(:thumb) %></td>
         <td>
-          <%= link_to "Edytuj", edit_user_path(user), class: 'btn btn-mini' %>
+          <%= link_to "Edytuj", edit_user_path(user), class: 'btn btn-xs btn-default' %>
           <%= link_to "Usuń", user_path(user), method: :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Jesteś pewnien?')) },
-                      :class => 'btn btn-mini btn-danger' %>
+                      class: 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "Nowy użytkownik", new_user_path, class: 'btn btn-primary' %>
+<%= link_to "Nowy użytkownik", new_user_invitation_path, class: 'btn btn-primary' %>

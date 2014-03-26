@@ -1,19 +1,16 @@
-<%= form_for @category, html: { multipart: true } do |form| %>
-<div class="control-group">
-  <div class="title field">
-    <%= form.label :title, class: 'control-label' %>
-    <%= form.text_field :title, value: @category.title, class: 'text_field' %>
+<%= form_for @category, html: { multipart: true, class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.text_field :title, value: @category.title, class: 'form-control', placeholder: "Nazwa" %>
   </div>
-  <div class="description field">
-    <%= form.label :description, class: 'control-label' %>
-    <%= form.text_area :description, value: @category.description %>
+  <div class="form-group description">
+    <%= f.text_field :description, value: @category.description, class: 'form-control ', placeholder: "Opis" %>
   </div>
-  <div class="photo field">
-    <%= form.file_field :avatar, class: 'file_field' %>
+  <div class="form-group">
+    <%= f.file_field :avatar %>
   </div>
-  <div class="action">
-    <%= link_to "Powrót", categories_path, class: 'btn' %>
-    <%= form.submit "Zapisz zmiany!", class: 'btn btn-primary' %>
+  <div class="form-group">
+    <%= link_to "Powrót", categories_path, class: 'btn btn-default' %>
+    <%= f.submit "Zapisz zmiany!", class: 'btn btn-success' %>
   </div>
 </div>
 <% end %>

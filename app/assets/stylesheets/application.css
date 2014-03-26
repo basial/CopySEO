@@ -10,19 +10,11 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap_and_overrides
  *= require jquery.ui.all
  */
-.log_info {
-  text-align: right;
-}
-
-.flash {
-  text-align: right;
-  color: red;
-}
 
 body {
+  padding: 60px;
   background-image: url('pap.png');
   background-size: 300px;
   background-repeat: repeat;

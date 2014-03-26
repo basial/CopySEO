@@ -1,5 +1,5 @@
 $(document).on('ready page:load', function() {
-  tinymce.init({selector:'.description textarea'});
+  tinymce.init({selector:'.description input'});
 
   $img = $(".category img");
   $img.on('mouseenter', function() {

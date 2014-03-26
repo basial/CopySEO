@@ -1,0 +1,14 @@
+<ul class="nav navbar-nav">
+  <li><%= link_to "Kategorie", categories_path, class: 'navbar-link' %></li>
+  <% if current_user.admin? %>
+    <li><%= link_to "Użytkownicy", users_path, class: 'navbar-link' %></li>
+  <% end %>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li><%= link_to current_user.full_name, current_user, class: 'navbar-link' %></li>
+  <li><span class="glyphicon glyphicon-user" style="padding-top:16px"></span></li>
+  <li><span class="glyphicon glyphicon-heart" style="padding-top:16px"></span></li>
+  <li><span class="glyphicon glyphicon-stats" style="padding-top:16px"></span></li>
+  <li><%= link_to "Wyloguj się", destroy_user_session_path, method: :delete, class: 'btn btn-default', style: "margin-left:20px" %></li>
+</ul>

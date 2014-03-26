@@ -1,0 +1,17 @@
+pl:
+  devise:
+    invitations:
+      send_instructions: 'Email został wysłany do %{email}.'
+      invitation_token_invalid: 'Token zaproszenia jest nieważny.'
+      updated: 'Udało się ustawić hasło. Jesteś teraz zalogowany.'
+      no_invitations_remaining: "Nie ma więcej zaproszeń"
+      invitation_removed: 'Twoje zaproszenie zostało usunięte.'
+      new:
+        header: "Wyślij zaproszenie."
+        submit_button: "Wyślij zaproszenie."
+      edit:
+        header: "Ustaw hasło."
+        submit_button: "Ustaw hasło."
+    mailer:
+      invitation_instructions:
+        subject: 'Dostałeś zaproszenie do rejestracji w CopySEO!'

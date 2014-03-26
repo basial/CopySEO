@@ -1,47 +1,27 @@
-<%= form_for @user, :html => { class: 'form-horizontal' } do |f| %>
-<div class="span9">
-  <div class="control-group">
-    <%= f.label :email, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :email, class: 'text_field' %>
-    </div>
+<%= form_for @user, :html => { class: 'form-horizontal col-md-6' } do |f| %>
+  <div class="form-group">
+    <%= f.text_field :email, class: "form-control", placeholder: "Adres e-mail" %>
   </div>
-  <div class="control-group">
-    <%= f.label :first_name, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :first_name, class: 'text_field' %>
-    </div>
+  <div class="form-group">
+    <%= f.text_field :first_name, class: "form-control", placeholder: "Imię" %>
   </div>
-  <div class="control-group">
-    <%= f.label :last_name, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, class: 'text_field' %>
-    </div>
+  <div class="form-group">  
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Nazwisko" %>
   </div>
-  <div class="control-group">
-    <%= f.label :address, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :address, class: 'text_field' %>
-    </div>
+  <div class="form-group">  
+    <%= f.text_field :address, class: "form-control", placeholder: "Adres" %>
   </div>
-  <div class="control-group">
-    <%= f.label :phone_number, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :phone_number, class: 'text_field' %>
-    </div>
+  <div class="form-group">  
+    <%= f.text_field :phone_number, class: "form-control", placeholder: "Telefon" %>
   </div>
-  <div class="control-group">
-    <%= f.label :dodaj_zdjęcie, class: 'control-label' %>
-    <div class="controls">
-      <%= f.file_field :avatar, class: 'text_field' %>
-    </div>
-  </div>
-  <div class="form-actions">
-    <%= link_to "Powrót", @user, class: 'btn' %>
-    <%= f.submit "Zapisz zmiany!", class: 'btn btn-primary' %>
-  </div>
-</div>
-  <div class="span3">
-    <%= image_tag @user.avatar.url(:medium) %>
-  </div>
+  <div class="form-group">  
+    <%= f.file_field :avatar %>
+  </div>  
+    <%= link_to "Powrót", @user, class: "btn btn-default" %>
+    <%= f.submit "Zapisz zmiany!", class: "btn btn-success" %>
 <% end %>
+<div class="col-md-2"></div>
+<div class="col-md-3">
+  <%= image_tag @user.avatar.url(:medium) %>
+</div>
+<div class="col-md-1"></div>

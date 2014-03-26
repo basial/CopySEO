@@ -1,23 +1,27 @@
-<%- model_class = Category -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<h1 class="page-header"><%= @category.title %></h1>
 
-<dl class="dl-horizontal">
-  <dt><strong>Nazwa:</strong></dt>
-  <dd><%= @category.title %></dd>
-  <dt><strong>Opis:</strong></dt>
-  <dd><%= (@category.description).html_safe %></dd>
-  <dt><strong>Ostatnio edytował:</strong></dt>
-  <dd><%= @category.last_contributor %></dd>
-</dl>
+<div class="col-md-6">
+  <%= render partial: 'category_show', locals: {category: @category} %><br><br>
 
-<div class="form-actions">
-  <%= link_to "Powrót", categories_path, :class => 'btn'  %>
-  <%= link_to "Edytuj", edit_category_path(@category), :class => 'btn' %>
+  <%= link_to "Powrót", categories_path, :class => 'btn btn-default'  %>
+  <%= link_to "Edytuj", edit_category_path(@category), :class => 'btn btn-default' %>
   <% if current_user.admin? %>
-  <%= link_to "Usuń", category_path(@category), :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+    <%= link_to "Usuń", category_path(@category), :method => 'delete', class: 'btn btn-danger', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
   <% end %>
 </div>
+
+<% if current_user.admin? %>
+  <div class="col-md-6">
+      <% @category.versions_without_nil.reverse.each do |version| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Utworzono: <%= version.created_at.strftime('%T %F') %></h4> 
+            <%= link_to "Przywróc", revert_version_path(version.id), method: :post, class: 'btn btn-default btn-xs' %>
+          </div>
+          <div class="panel body">
+            <%= render partial: 'category_show', locals: {category: version.reify} %><br> 
+          </div>
+        </div>
+      <% end %>
+  </div>
+<% end %>

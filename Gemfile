@@ -34,12 +34,10 @@ group :doc do
 end
 
 gem 'devise'
-
+gem 'devise_invitable'
 gem 'paperclip'
-
-gem 'twitter-bootstrap-rails'
-gem 'therubyracer'
-gem 'less-rails'
+gem 'paper_trail'
+gem 'prawn'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

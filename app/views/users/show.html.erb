@@ -1,38 +1,36 @@
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%= @user.full_name %></h1>
-</div>
-
+<h1 class="page-header"><%= @user.full_name %></h1>
 <dl class="dl-horizontal">
-  <div class="span9">
-    <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <div class="container col-md-6">
+    <dt><strong>Adres e-mail:</strong></dt>
     <dd><%= @user.email %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:last_sign_in_at) %>:</strong></dt>
-    <dd><%= @user.last_sign_in_at.strftime('%T %F') %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:admin) %>:</strong></dt>
+    <dt><strong>Admin:</strong></dt>
     <dd><%= @user.admin %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+    <dt><strong>Imię:</strong></dt>
     <dd><%= @user.first_name %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+    <dt><strong>Nazwisko:</strong></dt>
     <dd><%= @user.last_name %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+    <dt><strong>Adres:</strong></dt>
     <dd><%= @user.address %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+    <dt><strong>Telefon:</strong></dt>
     <dd><%= @user.phone_number %></dd>
   </div>
-  <div class="span3">
+  <div class="col-md-2"></div>
+  <div class="col-md-3">
     <%= image_tag @user.avatar.url(:medium) %>
   </div>
+  <div class="col-md-1"></div>
 </dl>
 
-<div class="form-actions">
+<div class="container col-md-12">
+  <br><br>
   <% if current_user.admin? %>
-  <%= link_to "Powrót", users_path, class: 'btn'  %>
-  <%= link_to "Edytuj", edit_user_path(@user), class: 'btn' %>
+  <%= link_to "Powrót", users_path, class: 'btn btn-default'  %>
+  <%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-default' %>
   <%= link_to "Usuń", user_path(@user), method: :delete,
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
   <% else %>
-    <%= link_to "Edytuj", edit_user_path(@user), class: 'btn' %>
+    <%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-default' %>
   <% end %>
+  <%= link_to "Generuj PDF", user_path(@user, format: "pdf"), class: 'btn btn-primary' %>
 </div>

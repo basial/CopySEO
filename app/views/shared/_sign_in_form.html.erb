@@ -1,0 +1,5 @@
+<%= form_for(User.new, :as => 'user', :url => session_path('user'), html: { class: "navbar-form navbar-right", role: "form" }) do |f| %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Adres e-mail" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Hasło" %>
+    <%= f.submit "Zaloguj!", class: "btn btn-success"  %>
+<% end %>

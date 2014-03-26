@@ -9,6 +9,21 @@ before_filter :set_user, only: [:show, :edit, :update, :destroy]
     @user = User.new
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        pdf.text "Hello user!"
+        send_data pdf.render
+      end
+    end
+  end
+
+  def create
+    User.invite!(params[:email])
+  end
+
   def update
     if @user.update(user_params)
       redirect_to @user
@@ -28,6 +43,6 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address, :phone_number, :avatar)
+    params.require(:user).permit(:email, :first_name, :last_name, :address, :phone_number, :avatar)
   end
 end

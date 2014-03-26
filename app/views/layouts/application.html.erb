@@ -8,45 +8,32 @@
   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 </head>
 <body>
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container navi">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">CopySEO</a>
-      <div class="nav-collapse">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">CopySEO</a>
+      </div>
+      <div class="navbar-collapse collapse">
         <% if current_user %>
-        <ul class="nav">
-          <li><%= link_to "Kategorie", categories_path, class: 'navbar-link' %></li>
-          <% if current_user.admin? %>
-          <li><%= link_to "Użytkownicy", users_path, class: 'navbar-link' %></li>
-          <% end %>
-          <li><%= link_to "Profil", current_user, class: 'navbar-link' %></li>
-          <li><%= link_to "Powiadomienia", class: 'navbar-link' %></li>
-        </ul>
+          <%= render 'shared/signed_in_nav' %>
+        <% else %>
+          <%= render 'shared/sign_in_form' %>
         <% end %>
       </div>
-      <p class="log_info">
-      <% if user_signed_in? %>
-        Jesteś zalogowany jako: <strong><%= current_user.email %></strong><br>
-        <%= link_to 'Edytuj profil', edit_user_registration_path, class: 'btn btn-mini' %> 
-        <%= link_to "Wyloguj się", destroy_user_session_path, method: :delete, class: 'btn btn-mini'  %>
-      <% else %>
-        <%= link_to "Zarejestruj się ", new_user_registration_path, class: 'btn btn-mini'  %> 
-        <%= link_to "Zaloguj się", new_user_session_path, class: 'btn btn-mini'  %>
-      <% end %>
-      </p>
     </div>
   </div>
-</div>
-<div class="flash">
+
   <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <div class="flash alert alert-success">
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    </div>
   <% end %>
-</div>
 
 <%= yield %>
 </body>

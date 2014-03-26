@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-CopySEO::Application.config.secret_key_base = 'f5c9588d931bcc1be14cb50eeaf6a0d4fb7503a14dd3142a57c613b3ccfbbdca48d2d9b35258b56396fade2209a4729ddc84b13b815f627168898add4394562c'
+CopySEO::Application.config.secret_key_base = 'f5c9588d931bkk1be14cb50eeaf6a0d4fb7503a14dd3142a57c613b3ccfbbdca48d2d9b35258b56396fade2209a4729ddc84b13ffrasdfghjkjhgfdsaSDFGHJKHGFDSAASdtuijkljhgfdsaWAETFYUHIJLKLJHDSQWTUIKL15f627168898add4394562c'
