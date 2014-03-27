@@ -18,7 +18,7 @@ private
 
   def authenticate_admin!
     if !current_user.admin?
-      redirect_to new_user_session_path
+      render 'shared/not_auth'
     end
   end
 end
