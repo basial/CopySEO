@@ -16,3 +16,4 @@
 /tmp
 /config/initializers/secret_token.rb
 /public/system/users/avatars
+/public/images

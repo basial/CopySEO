@@ -8,6 +8,8 @@ FactoryGirl.define do
     admin false
     confirmation_token nil
     confirmed_at DateTime.now - 1.second
+    first_name 'Jan'
+    last_name 'Kowalski'
   end
 
   factory :admin, class: User do
