@@ -15,6 +15,6 @@ class Category < ActiveRecord::Base
   end
 
   def versions_without_nil
-    versions[1..-1]
+    versions[1..-1] || []
   end
 end

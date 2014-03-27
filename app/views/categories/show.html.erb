@@ -16,7 +16,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">Utworzono: <%= version.created_at.strftime('%T %F') %></h4> 
-            <%= link_to "Przywróc", revert_version_path(version.id), method: :post, class: 'btn btn-default btn-xs' %>
+            <%= link_to "Przywróć", revert_version_path(version.id), method: :post, class: 'btn btn-default btn-xs' %>
           </div>
           <div class="panel body">
             <%= render partial: 'category_show', locals: {category: version.reify} %><br> 

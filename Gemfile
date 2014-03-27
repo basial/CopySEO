@@ -39,7 +39,20 @@ gem 'paperclip'
 gem 'paper_trail'
 gem 'prawn'
 
-# Use ActiveModel has_secure_password
+group :test do
+  gem 'factory_girl_rails'
+  gem "mocha", :require => false
+  gem 'rspec-rails'
+  gem 'rspec-fire'
+  gem 'rspec-radar'
+  gem 'fuubar'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+end
+
+
+# Use ActiveModel has_secure_password 
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server

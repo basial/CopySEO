@@ -31,7 +31,6 @@
               :class => 'btn btn-danger' %>
   <% else %>
     <%= link_to "Edytuj", edit_user_path(@user), class: 'btn btn-success' %>
-    <%= link_to "Zmień hasło", new_password_path(@user.id), class: 'btn btn-success' %>
   <% end %>
   <%= link_to "Generuj PDF", user_path(@user, format: "pdf"), class: 'btn btn-primary' %>
 </div>
