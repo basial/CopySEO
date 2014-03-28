@@ -1,8 +1,14 @@
 .glyphicon {
   -webkit-transition: color 0.2s;
   transition: color 0.2s;
+  padding-top: 16px;
+  padding-right: 5px;
 }
 .glyphicon:hover{
-  color: black;
+  color: rgba(255,255,255,0.8);
   cursor: pointer;
+}
+
+.glyphicon-stats {
+  padding-right: 15px;
 }
