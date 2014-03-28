@@ -3,10 +3,10 @@
 <div class="col-md-6">
   <%= render partial: 'category_show', locals: {category: @category} %><br><br>
 
-  <%= link_to "Powrót", categories_path, :class => 'btn btn-default'  %>
-  <%= link_to "Edytuj", edit_category_path(@category), :class => 'btn btn-default' %>
+  <%= link_to "Powrót", categories_path, class: 'btn btn-default'  %>
+  <%= link_to "Edytuj", edit_category_path(@category), class: 'btn btn-default' %>
   <% if current_user.admin? %>
-    <%= link_to "Usuń", category_path(@category), :method => 'delete', class: 'btn btn-danger', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } %>
+    <%= link_to "Usuń", category_path(@category), method: 'delete', class: 'btn btn-danger', data: { confirm: t('.confirm', default: t("helpers.links.confirm",default: 'Jesteś pewny?')) } %>
   <% end %>
 </div>
 

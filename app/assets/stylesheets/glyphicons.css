@@ -1,0 +1,8 @@
+.glyphicon {
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+.glyphicon:hover{
+  color: black;
+  cursor: pointer;
+}

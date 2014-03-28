@@ -5,14 +5,52 @@
   <div class="form-group description">
     <%= f.text_field :description, value: @category.description, class: 'form-control ', placeholder: "Opis" %>
   </div>
-  <div class="form-group">
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="form-group">
-    <%= link_to "Powrót", categories_path, class: 'btn btn-default' %>
-    <%= f.submit "Zapisz zmiany!", class: 'btn btn-success' %>
-  </div>
-
-  <div class="stats well col-md-offset-6">
-  </div>
+  <div class="container">
+    <div class="container col-md-4">
+      <div class="form-group">
+        <%= f.file_field :avatar %>
+      </div>
+      <div class="form-group">
+        <%= link_to "Powrót", categories_path, class: 'btn btn-default' %>
+        <%= f.submit "Zapisz zmiany!", class: 'btn btn-success' %>
+      </div>
+    </div>
+    <div class="container col-md-8">
+      <div class="warnings"></div>
+      <table class="col-md-5 well">
+        <tr><td><strong>Tytuł: </strong></td></tr>
+        <tr>
+          <td>Liczba wyrazów: </td>
+          <td id="title_words"></td>
+        </tr>
+        <tr>
+          <td>Liczba znaków: </td>
+          <td id="title_chars"></td>
+        </tr>
+        <tr>
+          <td>Liczba spacji: </td>
+          <td id="title_spaces"></td>
+        </tr>
+      </table>
+      <div class="col-md-2"></div>
+      <table class="col-md-5 well">
+        <tr><td><strong>Opis: </strong></td></tr>
+        <tr>
+          <td>Liczba wyrazów: </td>
+          <td id="description_words"></td>
+        </tr>
+        <tr>
+          <td>Liczba znaków: </td>
+          <td id="description_chars"></td>
+        </tr>
+        <tr>
+          <td>Liczba spacji: </td>
+          <td id="description_spaces"></td>
+        </tr>
+        <tr>
+          <td>Liczba zdań: </td>
+          <td id="description_sentences"></td>
+        </tr>
+      </table>
+    </div>
 <% end %>

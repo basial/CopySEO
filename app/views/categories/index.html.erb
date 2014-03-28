@@ -28,8 +28,8 @@
           <%= link_to "Edytuj", edit_category_path(category), 
             class: 'btn btn-default btn-xs' %>
           <% if current_user.admin? %>
-            <%= link_to "Usuń", category_path(category), :method => :delete,
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Jesteś pewny?')) }, class: 'btn btn-xs btn-danger' %>
+            <%= link_to "Usuń", category_path(category), method: :delete,
+              data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Jesteś pewny?')) }, class: 'btn btn-xs btn-danger' %>
           <% end %>
         </td>
       </tr>
@@ -38,5 +38,5 @@
 </table>
 
 <% if current_user.admin? %>
-  <%= link_to "Dodaj nową kategorię", new_category_path, :class => 'btn btn-primary' %>
+  <%= link_to "Dodaj nową kategorię", new_category_path, class: 'btn btn-primary' %>
 <% end %>
